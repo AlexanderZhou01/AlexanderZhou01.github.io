@@ -1,61 +1,149 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
-<title>header-img: "img/post-bg-rwd.jpg"</title>
-</head>
-<body>
-<div id="wmd-preview" class="wmd-preview"><div class="md-section-divider"></div><div class="md-section-divider"></div><option value="1" data-anchor-id="2028"> 英文 English </option><div class="zh post-container" data-anchor-id="udwk">
+---
+layout: page
+title: "About"
+description: "Hey, this is BY."
+header-img: "img/post-bg-rwd.jpg"
+---
 
-    
-    <blockquote class="white-blockquote"><p>跑下去 天自己会亮
-   </p></blockquote>
+<!-- Language Selector -->
+<!-- <select class="sel-lang" onchange= "onLanChange(this.options[this.options.selectedIndex].value)">
+    <option value="0" selected> 中文 Chinese </option>
+    <option value="1"> 英文 English </option>
+</select> -->
 
-    <p>Hey，我是<strong>Mr.Zhou</strong>，一只Java码蚁，出生于江西九江。</p>
+<!-- Chinese Version -->
+<div class="zh post-container">
 
-    <p>工作、学习之余，我还是一个足球爱好者，非常喜欢巴萨，欢迎志同道合的朋友联系交流。</p>
+    <!--copied from markdown -->
+    <blockquote><p>冰冻三尺 非一日之寒<br>
+    积土成山 非斯须之作</p></blockquote>
 
+    <p>Hey，我是<strong>Mr.Zhou</strong>，现在还是一只Java码蚁，出生于江西九江</p>
 
+    <p>工作、学习之余，我还是一个足球爱好者，非常喜欢巴萨，但并不会黑皇马，是一名文明观球者（括弧笑），有志同道合的朋友欢迎联系交友</p>
 
-    <p><br></p>
-    <p><br></p>
-    <p><br></p>
+    <br>
+    <br>
+    <br>
+    <br>
     <p></p>
-
-    <h5 id="talks">Talks</h5>
+    
+    <h5>Talks</h5>
 
     <ul>
-        <li><a href="https://github.com" target="_blank">GitHub</a></li>
-        <li><a href="http://jekyll.com.cn/" target="_blank">jekyll</a></li>
-        <li><a href="http://huangxuan.me/" target="_blank">Hux</a></li> 
-        <li><a href="https://analytics.google.com/analytics" target="_blank">Google Analytics</a></li>
+        <li><a href="https://github.com">GitHub</a></li>
+        <li><a href="http://jekyll.com.cn/">jekyll</a></li>
+        <li><a href="http://huangxuan.me/">Hux</a></li> 
+        <li><a href="https://analytics.google.com/analytics">Google Analytics</a></li>
     </ul>
-</div><p data-anchor-id="j72l"> <br>
- <br>
-    </p><blockquote data-anchor-id="6sga" class="white-blockquote"><p>Yet another iOS Developer. <br>
-    Yet another Life-long Student.</p></blockquote><p></p><pre data-anchor-id="22hh"><code>&lt;p&gt;Hi, I am &lt;strong&gt;Baiying Qiu&lt;/strong&gt;，you can call me &lt;strong&gt;BY&lt;/strong&gt;. I am an iOS software engineer and currently working in Xiamen&lt;/p&gt;
+</div>
 
-&lt;p&gt;This is my personal blog, through making Github Pages and Jekyll.My GitHub  👉 &lt;a href="http://github.com/qiubaiying"&gt;Github·BY&lt;/a&gt;.&lt;/p&gt;
+<!-- English Version -->
+<!-- <div class="en post-container">
+    <blockquote><p>Yet another iOS Developer. <br>
+    Yet another Life-long Student.</p></blockquote>
 
-&lt;p&gt;I am a sports enthusiast, I like fitness, running and boxing.&lt;/p&gt;
+    <p>Hi, I am <strong>Baiying Qiu</strong>，you can call me <strong>BY</strong>. I am an iOS software engineer and currently working in Xiamen</p>
 
-&lt;h5&gt;Talks&lt;/h5&gt;
+    <p>This is my personal blog, through making Github Pages and Jekyll.My GitHub  👉 <a href="http://github.com/qiubaiying">Github·BY</a>.</p>
+    
+    <p>I am a sports enthusiast, I like fitness, running and boxing.</p>
 
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://github.com"&gt;GitHub&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://jekyll.com.cn/"&gt;jekyll&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://pages.github.com/"&gt;GitHub Pages&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://qiubaiying.github.io"&gt;BY&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</code></pre><p data-anchor-id="w3su"> --&gt;</p><p data-anchor-id="443n"> <br>
-{% if site.gitalk.enable %} <br>
- <br>
-</p><div id="gitalk-container"></div><p data-anchor-id="hzau">{% endif %} <br>
-</p><p data-anchor-id="srp8"> <br>
-{% if site.disqus.enable %}</p><div class="comment" data-anchor-id="5x1s">
+    <h5>Talks</h5>
+
+    <ul>
+    <li><a href="https://github.com">GitHub</a></li>
+    <li><a href="http://jekyll.com.cn/">jekyll</a></li>
+    <li><a href="https://pages.github.com/">GitHub Pages</a></li>
+    <li><a href="https://qiubaiying.github.io">BY</a></li>
+    </ul>
+</div> -->
+
+<!-- Handle Language Change -->
+<script type="text/javascript">
+    // get nodes
+    var $zh = document.querySelector(".zh");
+    var $en = document.querySelector(".en");
+    var $select = document.querySelector("select");
+
+    // bind hashchange event
+    window.addEventListener('hashchange', _render);
+
+    // handle render
+    function _render(){
+        var _hash = window.location.hash;
+        // en
+        if(_hash == "#en"){
+            $select.selectedIndex = 1;
+            $en.style.display = "block";
+            $zh.style.display = "none";
+        // zh by default
+        }else{
+            // not trigger onChange, otherwise cause a loop call.
+            $select.selectedIndex = 0;
+            $zh.style.display = "block";
+            $en.style.display = "none";
+        }
+    }
+
+    // handle select change
+    function onLanChange(index){
+        if(index == 0){
+            window.location.hash = "#zh"
+        }else{
+            window.location.hash = "#en"
+        }
+    }
+
+    // init
+    _render();
+</script>
+
+
+<!-- Gitalk 评论 start  -->
+{% if site.gitalk.enable %}
+<!-- Gitalk link  -->
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk@latest/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+    <script type="text/javascript">
+    var gitalk = new Gitalk({
+    clientID: '{{site.gitalk.clientID}}',
+    clientSecret: '{{site.gitalk.clientSecret}}',
+    repo: '{{site.gitalk.repo}}',
+    owner: '{{site.gitalk.owner}}',
+    admin: ['{{site.gitalk.admin}}'],
+    distractionFreeMode: {{site.gitalk.distractionFreeMode}},
+    id: 'about',
+    });
+    gitalk.render('gitalk-container');
+</script>
+{% endif %}
+<!-- Gitalk end -->
+
+ <!-- disqus 评论框 start  -->
+{% if site.disqus.enable %}
+
+<div class="comment">
     <div id="disqus_thread" class="disqus-thread">
     </div>
-</div><p data-anchor-id="r86q"> <br>
-{% endif %}</p></div>
-</body>
-</html>
+</div>
+<!-- disqus 评论框 end -->
+
+<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "{{site.disqus.username}}";
+    var disqus_identifier = "{{site.disqus.username}}/{{page.url}}";
+    var disqus_url = "{{site.url}}{{page.url}}";
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus 公共JS代码 end -->
+{% endif %}
+
