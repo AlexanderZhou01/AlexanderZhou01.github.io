@@ -1,4 +1,4 @@
-﻿# 2017-11-06-ActiveMq部署完毕访问报HTTP ERROR：503错误
+﻿# ActiveMq部署完毕访问报HTTP ERROR：503错误
 
 标签（空格分隔）： ActiveMq
 
